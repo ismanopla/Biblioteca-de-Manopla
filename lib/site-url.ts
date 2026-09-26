@@ -1,0 +1,1 @@
+export function siteOrigin(){const value=process.env.NEXTAUTH_URL||process.env.URL;if(!value)throw Error('Configura NEXTAUTH_URL con la URL pública de Netlify.');return new URL(value).origin;}

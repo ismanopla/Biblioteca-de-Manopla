@@ -1,0 +1,6 @@
+import type {CSSProperties} from 'react';
+export type Project={id:string;code:string;name:string;description:string;color:string;accent:string;background:string;icon:string;font:string;layout:string;archived:number;count?:number};
+export const DEFAULT_PROJECT:Project={id:'dominicano',code:'DOM-001',name:'Español dominicano',description:'Bibliografías y materiales sobre nuestras palabras, expresiones e identidad cultural.',color:'#173a69',accent:'#d7ad60',background:'#f7f8fc',icon:'book',font:'serif',layout:'list',archived:0};
+export const ICONS={book:'Libro',graduation:'Educación',flask:'Ciencia',globe:'Geografía',code:'Tecnología',palette:'Arte',history:'Historia',leaf:'Naturaleza',music:'Música',folder:'Carpeta'};
+export function foreground(hex:string){const v=hex.slice(1).match(/.{2}/g)!.map(c=>{const n=parseInt(c,16)/255;return n<=.04045?n/12.92:((n+.055)/1.055)**2.4;});return .2126*v[0]+.7152*v[1]+.0722*v[2]>.179?'#000000':'#ffffff';}
+export function theme(p:Project):CSSProperties{return {'--project-color':p.color,'--project-accent':p.accent,'--project-bg':p.background,'--project-text':foreground(p.background),'--project-on-color':foreground(p.color),'--project-font':p.font==='serif'?'Georgia, serif':'Arial, sans-serif'} as CSSProperties;}
