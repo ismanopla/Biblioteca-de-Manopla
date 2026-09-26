@@ -1,0 +1,1 @@
+'use client';import {signOut} from 'next-auth/react';import {Button} from '@/components/ui/button';export default function Logout(){return <main className="access-page"><h1>Cerrar sesión</h1><Button onClick={()=>signOut({callbackUrl:'/'})}>Cerrar sesión</Button><p><a href="/">Volver sin salir</a></p></main>;}
