@@ -1,0 +1,1 @@
+import type {Metadata} from 'next';import './globals.css';export const metadata:Metadata={title:'Biblioteca de Enmanuel | Español dominicano',description:'Bibliografías y archivos para consultar y descargar.',icons:{icon:'/favicon.svg'}};export default function Layout({children}:{children:React.ReactNode}){return <html lang="es"><body>{children}</body></html>;}

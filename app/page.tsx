@@ -1,0 +1,1 @@
+import Hub from './hub';import {getChatGPTUser,chatGPTSignInPath} from './chatgpt-auth';import {isAdmin} from '@/lib/resources';export const dynamic='force-dynamic';export default async function Page(){const u=await getChatGPTUser();return <Hub admin={false} canAdmin={await isAdmin()} viewer={u?.displayName??null} signInUrl={chatGPTSignInPath('/')}/>;}
